@@ -7,24 +7,24 @@ import {
 export const featuresData = [
   {
     color: "blue",
-    title: "Awarded Agency",
+    title: "Awarded Nail Tech",
     icon: StarIcon,
     description:
-      "Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.",
+      "Indulge in the artistry of our award-winning Nail Tech for exquisite nail treatments and stunning designs.",
   },
   {
     color: "red",
-    title: "Free Revisions",
+    title: "Beauty Specialist",
     icon: ArrowPathIcon,
     description:
-      "Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious.",
+      "Experience the expertise of our Beauty Specialist for exceptional beauty services and personalized treatments.",
   },
   {
     color: "teal",
-    title: "Verified Company",
+    title: "Quality Services",
     icon: FingerPrintIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "Experience top-notch quality services at Matt-Khai Beauty Salon, where our skilled team goes above and beyond to ensure your satisfaction and pampering.",
   },
 ];
 

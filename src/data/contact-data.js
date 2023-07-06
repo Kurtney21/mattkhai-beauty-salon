@@ -9,19 +9,19 @@ export const contactData = [
     title: "Excelent Services",
     icon: StarIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Experience excellence in every treatment at Matt-Khai Beauty Salon, where our dedicated team goes above and beyond to deliver exceptional service and results.",
   },
   {
-    title: "Grow Your Market",
+    title: "Great Reviews",
     icon: PresentationChartLineIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Our clients rave about their incredible experiences at Matt-Khai Beauty Salon, with glowing reviews that speak to the outstanding quality of our services.",
   },
   {
-    title: "Launch Time",
+    title: "Happy Customers",
     icon: RocketLaunchIcon,
     description:
-      "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "At Matt-Khai Beauty Salon, our top priority is customer satisfaction, and seeing our clients leave with smiles of joy and satisfaction is what fuels our passion for beauty.",
   },
 ];
 

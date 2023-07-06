@@ -18,7 +18,7 @@ export function TeamCard({ img, name, position, socials }) {
           {position}
         </Typography>
       )}
-      {socials && <div className="mx-auto mt-5">{socials}</div>}
+     
     </Card>
   );
 }
@@ -32,7 +32,6 @@ TeamCard.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   position: PropTypes.string,
-  socials: PropTypes.node,
 };
 
 TeamCard.displayName = "/src/widgets/layout/team-card.jsx";

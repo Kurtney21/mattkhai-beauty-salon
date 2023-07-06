@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import {
   Card,
   CardBody,
@@ -13,12 +13,26 @@ import { UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
+import emailjs from '@emailjs/browser';
+
 
 export function Home() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm('service_e54u47k', 'template_h6z6i0s', form.current, 'tRfxtZg8R_OhJXCuW')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
-        <div className="absolute top-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')] bg-cover bg-center" />
+        <div className="absolute top-0 h-full w-full bg-[url('/img/home-bg.jpg')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
         <div className="max-w-8xl container relative mx-auto">
           <div className="flex flex-wrap items-center">
@@ -28,12 +42,13 @@ export function Home() {
                 color="white"
                 className="mb-6 font-black"
               >
-                Your story starts with us.
+                Discover the Beauty of Elegance and Style at Matt-Khai Beauty Salon
               </Typography>
               <Typography variant="lead" color="white" className="opacity-80">
-                This is a simple example of a Landing Page you can build using
-                Material Tailwind. It features multiple components based on the
-                Tailwind CSS and Material Design by Google.
+                At Matt-Khai Beauty Salon, we believe that true beauty is a reflection 
+                of elegance and style. Step into our world of exceptional pampering and 
+                indulge in luxurious treatments that will leave you feeling radiant, 
+                confident, and utterly transformed.
               </Typography>
             </div>
           </div>
@@ -64,17 +79,19 @@ export function Home() {
                 className="mb-3 font-bold"
                 color="blue-gray"
               >
-                Working with us is a pleasure
+                Working with me is a pleasure
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
-                Don't let your uses guess by attaching tooltips and popoves to
-                any element. Just make sure you enable them first via
-                JavaScript.
+                Experience pure pleasure as Amy Jantjies, the owner of Matt-Khai 
+                Beauty Salon, pampers you with personalized attention, meticulous care, 
+                and a warm atmosphere that brings out your inner beauty.
                 <br />
                 <br />
-                The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and you're good to
-                go. Just make sure you enable them first via JavaScript.
+                With unwavering commitment, Amy Jantjies at Matt-Khai Beauty Salon 
+                delivers exceptional results through her expertise and genuine passion. 
+                Experience pure bliss as Amy pampers you with stunning nail designs, 
+                rejuvenating facials, and transformative skincare therapies, leaving you 
+                feeling radiant and renewed.
               </Typography>
               <Button variant="outlined">read more</Button>
             </div>
@@ -83,7 +100,7 @@ export function Home() {
                 <CardHeader className="relative h-56">
                   <img
                     alt="Card Image"
-                    src="/img/teamwork.jpeg"
+                    src="/img/oven.jpg"
                     className="h-full w-full"
                   />
                 </CardHeader>
@@ -96,9 +113,9 @@ export function Home() {
                     Top Notch Services
                   </Typography>
                   <Typography className="font-normal text-blue-gray-500">
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens.
+                    Indulge in top-notch services at Matt-Khai Beauty Salon, 
+                    where our dedicated team ensures an exceptional and 
+                    rejuvenating experience.
                   </Typography>
                 </CardBody>
               </Card>
@@ -108,27 +125,18 @@ export function Home() {
       </section>
       <section className="px-4 pt-20 pb-48">
         <div className="container mx-auto">
-          <PageTitle heading="Here are our heroes">
-            According to the National Oceanic and Atmospheric Administration,
-            Ted, Scambos, NSIDClead scentist, puts the potentially record
-            maximum.
+          <PageTitle heading="Here are our Results">
+            Experience transformative results at Matt-Khai Beauty Salon, 
+            where our expert techniques and personalized approach leave 
+            you looking and feeling your absolute best.  
           </PageTitle>
           <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
-            {teamData.map(({ img, name, position, socials }) => (
+            {teamData.map(({ img, name, position, socials, index }) => (
               <TeamCard
                 key={name}
                 img={img}
                 name={name}
                 position={position}
-                socials={
-                  <div className="flex items-center gap-2">
-                    {socials.map(({ color, name }) => (
-                      <IconButton key={name} color={color} variant="text">
-                        <i className={`fa-brands text-lg fa-${name}`} />
-                      </IconButton>
-                    ))}
-                  </div>
-                }
               />
             ))}
           </div>
@@ -136,10 +144,11 @@ export function Home() {
       </section>
       <section className="relative bg-blue-gray-50/50 py-24 px-4">
         <div className="container mx-auto">
-          <PageTitle heading="Build something">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
+          <PageTitle heading="Love Beautification">
+            Love Beautification is a transformative experience 
+            that embraces self-love and enhances natural beauty 
+            through personalized treatments, fostering a harmonious 
+            balance of mind, body, and soul.
           </PageTitle>
           <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             {contactData.map(({ title, icon, description }) => (
@@ -163,16 +172,16 @@ export function Home() {
               </Card>
             ))}
           </div>
-          <PageTitle heading="Want to work with us?">
+          <PageTitle heading="Want to get in touch with us?">
             Complete this form and we will get back to you in 24 hours.
           </PageTitle>
-          <form className="mx-auto mt-12 max-w-3xl text-center">
+          <form className="mx-auto mt-12 max-w-3xl text-center" ref={form} onSubmit={sendEmail}>
             <div className="mb-8 flex gap-8">
-              <Input variant="standard" size="lg" label="Full Name" />
-              <Input variant="standard" size="lg" label="Email Address" />
+              <Input variant="standard" size="lg" label="Full Name" type="text" name="from_name"/>
+              <Input variant="standard" size="lg" label="Email Address" type="email" name="from_email"/>
             </div>
-            <Textarea variant="standard" size="lg" label="Message" rows={8} />
-            <Button variant="gradient" size="lg" className="mt-8">
+            <Textarea variant="standard" size="lg" label="Message" rows={8} name="message"/>
+            <Button variant="gradient" size="lg" className="mt-8" type="submit">
               Send Message
             </Button>
           </form>
